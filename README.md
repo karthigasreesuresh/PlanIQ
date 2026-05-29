@@ -1,135 +1,233 @@
-# PlanIQ - Intelligent Task Management SaaS
+# PlanIQ – Intelligent Task Management Platform
 
-PlanIQ is a premium, full-stack, responsive task management web application designed like a modern SaaS productivity tool (similar to Notion, Linear, or ClickUp). 
+[![Live Demo](https://img.shields.io/badge/Live-Demo-success?style=for-the-badge)](https://planiq-dun.vercel.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge)](https://github.com/karthigasreesuresh/PlanIQ)
+[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
-Developed with a clean, dark-themed, glassmorphic layout, it features JWT authentication, statistics widgets, productivity indicators, overdue warnings, search/filter/sort options, and full task CRUD capabilities.
+## Overview
 
----
+PlanIQ is a modern, full-stack task management platform designed to streamline task organization, productivity tracking, and workflow management. Built with a professional SaaS-inspired interface, PlanIQ enables users to efficiently create, manage, prioritize, and monitor tasks through an intuitive and responsive experience.
 
-## ⚡ Tech Stack & Architecture
+The platform combines secure authentication, real-time task management, insightful dashboard analytics, and a clean user-centric design to deliver a seamless productivity solution for individuals and teams.
 
-* **Frontend**: React.js 19 + Vite + React Router v6
-* **Backend**: Node.js + Express.js
-* **Styling**: Tailwind CSS v3 (Customized Dark Theme)
-* **Icons**: Lucide React
-* **Database**: **Dual-Database Layer Adapter**
-  * **MongoDB (Production)**: Uses Mongoose schemas when a connection URI is provided.
-  * **Local JSON DB (Zero-Config Fallback)**: Automatically falls back to a clean, transactional file database (`backend/data/db.json`) if MongoDB is not configured. **Requires zero external installations to run!**
+### Live Application
+
+🔗 **Production URL:** https://planiq-dun.vercel.app/
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
-1. **User Authentication & Session Security**:
-   * One-way password hashing using `bcryptjs`.
-   * Secure session tokens using JWT.
-   * Scoped queries—users can only access, filter, or delete their own tasks.
-2. **Dashboard Analytics (Productivity Center)**:
-   * Dynamically calculated statistics (Total, Pending, In Progress, Completed, High Priority).
-   * Overdue deadline indicators and warnings.
-   * Beautiful SVG-based visual productivity progress indicator showing completion ratios.
-   * Recent task activity log.
-3. **Advanced Filtering, Sorting & Search**:
-   * Text search matching both titles and descriptions.
-   * State filters to isolate status (Pending, In Progress, Completed) and priorities (Low, Medium, High).
-   * Sorting by due date (chronological) or recently added tasks.
-4. **Intuitive Task Operations**:
-   * Interactive checkboxes to toggle task completion with optimistic UI updates.
-   * Integrated creation and editing models.
-   * Confirmation prompt dialog before deleting tasks.
-5. **Interactive Responsive Interface**:
-   * Beautiful glassmorphic cards, gradient accents, floating blur graphics, and responsive layouts for mobile, tablet, and desktop viewports.
+### Secure Authentication
+
+* User Registration and Login
+* Protected Routes
+* Secure Session Management
+* User-Specific Data Access
+* Authentication & Authorization Controls
+
+### Task Management
+
+* Create, Update, and Delete Tasks
+* Task Status Tracking
+* Priority-Based Task Organization
+* Due Date Management
+* Progress Monitoring
+* Task Completion Tracking
+
+### Dashboard & Analytics
+
+* Total Tasks Overview
+* Completed Tasks Statistics
+* Pending Tasks Monitoring
+* In-Progress Task Tracking
+* Productivity Insights Dashboard
+* Interactive Data Visualization
+
+### Search & Filtering
+
+* Search Tasks Instantly
+* Filter by Status
+* Filter by Priority
+* Sort by Due Date
+* Organized Task Navigation
+
+### Professional User Experience
+
+* Modern SaaS-Inspired Design
+* Responsive Across All Devices
+* Clean and Minimal Interface
+* Smooth Navigation Experience
+* Optimized User Workflow
+* Mobile-Friendly Architecture
 
 ---
 
-## 📁 Project Structure
+## Technology Stack
 
+### Frontend
+
+* React.js
+* Vite
+* React Router DOM
+
+### Backend
+
+* Node.js
+* Express.js
+
+### Authentication
+
+* JSON Web Token (JWT)
+
+### Database Layer
+
+* JSON-Based Local Storage
+* MongoDB-Ready Architecture
+
+### Deployment & Version Control
+
+* Vercel
+* GitHub
+
+---
+
+## System Architecture
+
+```text
+PlanIQ
+│
+├── Frontend (React + Vite)
+│   ├── Authentication UI
+│   ├── Dashboard
+│   ├── Task Management Module
+│   ├── Search & Filters
+│   └── Responsive Interface
+│
+├── Backend (Node.js + Express)
+│   ├── Authentication APIs
+│   ├── Task CRUD APIs
+│   ├── Statistics Engine
+│   └── Middleware Layer
+│
+└── Database Layer
+    ├── JSON Storage
+    └── MongoDB Compatible Design
 ```
+
+---
+
+## Project Structure
+
+```text
 PlanIQ/
-├── package.json               # Root config (concurrent runner scripts)
-├── README.md                  # Detailed startup and configuration guide
+│
 ├── backend/
-│   ├── package.json           # Express server requirements
-│   ├── server.js              # Server entry point
-│   ├── .env                   # Local configuration variables
 │   ├── config/
-│   │   └── db.js              # Dual-Database Layer Adapter
-│   ├── middleware/
-│   │   └── auth.js            # JWT verification layer
 │   ├── controllers/
-│   │   ├── authController.js  # Registration, sign-in, and profile actions
-│   │   └── taskController.js  # CRUD and dashboard stats calculations
-│   └── routes/
-│       ├── authRoutes.js      # Auth API routes
-│       └── taskRoutes.js      # Task API routes
-└── frontend/
-    ├── package.json           # React Vite requirements
-    ├── vite.config.js         # Bundler configs
-    ├── tailwind.config.js     # Custom SaaS themes & colors config
-    ├── postcss.config.js      # CSS compiler pipeline
-    ├── index.html             # Main index template & Google Font imports
-    └── src/
-        ├── index.css          # Tailwind base & custom animations/glass classes
-        ├── App.jsx            # Routing and overall App shells
-        ├── main.jsx           # Mounting React
-        ├── context/
-        │   └── AuthContext.jsx # Global user authentication state
-        ├── utils/
-        │   └── api.js          # Unified API caller with header attachments
-        ├── components/
-        │   ├── Sidebar.jsx    # Left-hand navigation
-        │   ├── Navbar.jsx     # Top greeting & utility header
-        │   ├── TaskCard.jsx   # Interactive task displays
-        │   ├── TaskModal.jsx  # Task input forms
-        │   └── ConfirmModal.jsx # Deletion check popup
-        └── pages/
-            ├── LandingPage.jsx # Landing promo & features page
-            ├── LoginPage.jsx   # Credentials form
-            ├── RegisterPage.jsx# Registration form
-            ├── Dashboard.jsx   # Analytical dashboards
-            ├── TasksPage.jsx   # Searchable and sortable registry
-            ├── ProfilePage.jsx # Security details & account snapshots
-            └── NotFound.jsx    # 404 Error page
+│   ├── middleware/
+│   ├── routes/
+│   ├── data/
+│   └── server.js
+│
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── context/
+│   │   ├── utils/
+│   │   └── assets/
+│   └── vite.config.js
+│
+├── package.json
+├── README.md
+└── .gitignore
 ```
 
 ---
 
-## ⚙️ Setup and Installation
+## Getting Started
 
-### 1. Install Dependencies
-Make sure you have Node.js installed. Open a terminal in the root `PlanIQ` directory and run:
+### Clone the Repository
+
 ```bash
-npm run install-all
+git clone https://github.com/karthigasreesuresh/PlanIQ.git
 ```
-*This single command will install all packages for the root runner, Express backend, and React frontend simultaneously.*
 
-### 2. Configure Environment Variables
-Inside the `backend` folder, copy `.env.example` to `.env` (it has been created by default for you):
-```env
-PORT=5000
-JWT_SECRET=planiq_secret_auth_token_for_user_sessions_2026
-MONGODB_URI=
+### Navigate to the Project Directory
+
+```bash
+cd PlanIQ
 ```
-> [!TIP]
-> **Zero-Config Mode**: If `MONGODB_URI` is left blank, PlanIQ runs automatically using the local database file `backend/data/db.json`. No MongoDB setup is required!
-> If you wish to use a live MongoDB server, simply insert your URI connection string in `MONGODB_URI`.
 
----
+### Install Dependencies
 
-## 🏃 Running the Application
+```bash
+npm install
+```
 
-To start both the backend API and frontend dev server simultaneously, run from the root folder:
+### Run the Application
+
 ```bash
 npm run dev
 ```
 
-Once running:
-* **Frontend**: Open `http://localhost:5173` in your browser.
-* **Backend API**: Running at `http://localhost:5000`.
+The application will start locally and be available through the configured development environment.
 
 ---
 
-## 👨‍💻 Verification Checks
+## Deployment
 
-* **Build Validation**: The project compiles successfully into production assets via `npm run build`.
-* **Database fallback**: The app gracefully creates and writes JSON states to `backend/data/db.json` when MongoDB connection details are absent.
+### Live Production Application
+
+🔗 https://planiq-dun.vercel.app/
+
+### Source Code Repository
+
+🔗 https://github.com/karthigasreesuresh/PlanIQ
+
+---
+
+## Project Objectives
+
+* Develop a complete full-stack web application
+* Implement secure user authentication and authorization
+* Design and integrate RESTful APIs
+* Manage dynamic task-based workflows
+* Create a responsive and professional user interface
+* Demonstrate modern software development practices
+
+---
+
+## Future Enhancements
+
+* Team Collaboration Features
+* Real-Time Task Updates
+* Email Notifications
+* Calendar Integration
+* Dark/Light Theme Toggle
+* Productivity Reports
+* AI-Powered Task Recommendations
+* Cloud Database Integration
+
+---
+
+## Developer
+
+### Karthiga Sree Suresh
+
+**B.Tech Information Technology Student**
+**Full Stack Developer | AI & Machine Learning Enthusiast**
+
+GitHub: https://github.com/karthigasreesuresh
+
+---
+
+## License
+
+This project is licensed under the MIT License.
+
+---
+
+### If you found this project useful, consider giving it a ⭐ on GitHub.
