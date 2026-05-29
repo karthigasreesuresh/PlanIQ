@@ -19,6 +19,17 @@
       "dueDate": "2026-06-01T00:00:00.000Z",
       "createdAt": "2026-05-29T06:51:30.990Z",
       "updatedAt": "2026-05-29T06:51:30.990Z"
+    },
+    {
+      "_id": "bitz7n5y8yr6vcdjpt27z2",
+      "userId": "nlyflf4o1ursr1boc91o",
+      "title": "Project",
+      "description": "Task tracker",
+      "priority": "Medium",
+      "status": "In Progress",
+      "dueDate": "2026-06-01T00:00:00.000Z",
+      "createdAt": "2026-05-29T08:30:04.108Z",
+      "updatedAt": "2026-05-29T08:30:04.108Z"
     }
   ]
 }
