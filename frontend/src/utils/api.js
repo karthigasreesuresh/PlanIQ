@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'https://planiq-888q.onrender.com/api';
 
 async function apiRequest(endpoint, options = {}) {
   const token = localStorage.getItem('planiq_token');
