@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "_id": "nlyflf4o1ursr1boc91o",
+      "name": "student",
+      "email": "student@gmail.com",
+      "password": "$2a$10$XtJXBQnXwERkOmWZ8FRb5enevTRSYLNOlqNcIXkE0MH57qTC5Isbi",
+      "createdAt": "2026-05-29T06:50:01.231Z"
+    }
+  ],
+  "tasks": [
+    {
+      "_id": "gn8ueaaaa3dxlhd48dm5wf",
+      "userId": "nlyflf4o1ursr1boc91o",
+      "title": "Thiranx",
+      "description": "Internship completion",
+      "priority": "High",
+      "status": "In Progress",
+      "dueDate": "2026-06-01T00:00:00.000Z",
+      "createdAt": "2026-05-29T06:51:30.990Z",
+      "updatedAt": "2026-05-29T06:51:30.990Z"
+    }
+  ]
+}
